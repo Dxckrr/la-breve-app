@@ -22,10 +22,10 @@ export default function Home() {
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="/">
             Inicio
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/productos">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/products">
             Productos
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#about">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/about-us">
             Nosotros
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contact">
@@ -45,12 +45,12 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link href="/productos">
+                  <Link href="/products">
                     <Button className="bg-amber-600 hover:bg-amber-700">
                       Ver Productos <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
-                  <Link href="#about">
+                  <Link href="/about-us">
                     <Button variant="outline">Conoce más</Button>
                   </Link>
                 </div>
@@ -68,7 +68,7 @@ export default function Home() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32" id="features">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-amber-100 px-3 py-1 text-sm">Características</div>
@@ -164,7 +164,7 @@ export default function Home() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-amber-50" id="testimonials">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Lo que dicen nuestros clientes</h2>
@@ -200,8 +200,8 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-muted-foreground">
-                    "La Breve es mi compañero perfecto para el día a día. Su sabor es increíble y me encanta que sea tan
-                    conveniente."
+                    La Breve es mi compañero perfecto para el día a día. Su sabor es increíble y me encanta que sea tan
+                    conveniente.
                   </p>
                 </div>
               </div>
@@ -231,7 +231,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-muted-foreground">
-                    "Perfecto para después de entrenar. Refrescante, natural y con el balance perfecto de sabor."
+                    Perfecto para después de entrenar. Refrescante, natural y con el balance perfecto de sabor.
                   </p>
                 </div>
               </div>
@@ -261,50 +261,17 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="text-muted-foreground">
-                    "Como profesional de la gastronomía, aprecio la calidad de los ingredientes. La Breve es simplemente
-                    excepcional."
+                    Como profesional de la gastronomía, aprecio la calidad de los ingredientes. La Breve es simplemente
+                    excepcional.
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32" id="about">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Nuestra Historia</h2>
-                  <p className="text-muted-foreground md:text-xl">
-                    La Breve nació de la pasión por crear una bebida que combinara sabor, calidad y conveniencia.
-                  </p>
-                </div>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Fundada en 2020, La Breve surgió como respuesta a la necesidad de una bebida lista para tomar que no
-                    comprometiera la calidad ni el sabor. Nuestro equipo de expertos trabajó incansablemente para
-                    desarrollar una fórmula perfecta que utilizara solo ingredientes naturales de la más alta calidad.
-                  </p>
-                  <p>
-                    Hoy, La Breve se ha convertido en la opción preferida para quienes buscan una bebida refrescante,
-                    saludable y deliciosa que se adapte a su estilo de vida activo.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Equipo de La Breve"
-                  width={600}
-                  height={400}
-                  className="rounded-xl object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+
         <section className="w-full py-12 md:py-24 lg:py-32 bg-amber-600" id="cta">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter text-white md:text-4xl">
@@ -325,7 +292,7 @@ export default function Home() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32" id="contact">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Contáctanos</h2>
