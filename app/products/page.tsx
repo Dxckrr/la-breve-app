@@ -44,7 +44,7 @@ export default function ProductosPage() {
                 <h1 className="text-start text-3xl font-bold tracking-tighter sm:text-5xl">
                   Nuestros Productos
                 </h1>
-                <p className="max-w-[900px] text-la-breve-navy md:text-xl">
+                <p className="text-start max-w-[900px] text-la-breve-navy md:text-xl">
                   Descubre nuestra variedad de bebidas listas para tomar
                 </p>
               </div>
@@ -96,7 +96,7 @@ export default function ProductosPage() {
                       {producto.descripcion}
                     </p>
                     <p className="text-base font-bold mt-1 text-la-breve-orange">
-                      ${producto.precio}
+                      {producto.precio}
                     </p>
                   </CardContent>
                   <CardFooter className="p-3 pt-0 flex justify-between">

@@ -54,34 +54,39 @@ export default function Home() {
                           Ver Productos <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>
-                      <Link className="self-end" href="/about-us">
+                      <Link className="sm:self-end" href="/about-us">
                         <Button className="cursor-pointer" variant="outline">
                           Conoce más
                         </Button>
                       </Link>
                     </div>
                   </div>
-                  <div className="flex items-center justify-center overflow-hidden">
+                  <div className="relative flex items-center justify-center gap-4 overflow-hidden py-8">
+                    {/* Imagen izquierda */}
                     <Image
                       src="/la-breve.png"
-                      alt="La Breve Producto"
+                      alt="La Breve Producto Izquierda"
                       width={350}
                       height={250}
-                      className="rounded-xl object-cover h-auto translate-x-72 "
+                      className="rounded-xl object-cover h-auto w-[30%] max-w-[200px] translate-x-28 sm:translate-x-40 xl:translate-x-40 2xl:translate-x-48"
                     />
+
+                    {/* Imagen del medio */}
                     <Image
                       src="/la-breve.png"
-                      alt="La Breve Producto"
+                      alt="La Breve Producto Centro"
                       width={550}
                       height={450}
-                      className="rounded-xl object-cover h-auto z-10"
+                      className="rounded-xl object-cover h-auto w-[50%] max-w-[400px] z-10 scale-110"
                     />
+
+                    {/* Imagen derecha */}
                     <Image
                       src="/la-breve.png"
-                      alt="La Breve Producto"
+                      alt="La Breve Producto Derecha"
                       width={350}
                       height={250}
-                      className="rounded-xl object-cover h-auto -translate-x-72"
+                      className="rounded-xl object-cover h-auto w-[30%] max-w-[200px] -translate-x-28 sm:-translate-x-40 xl:-translate-x-40 2xl:-translate-x-48"
                     />
                   </div>
                 </div>
@@ -320,7 +325,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                    <Link href="/productos">
+                    <Link href="/products">
                       <Button className="bg-white text-xl text-black hover:scale-110 hover:bg-white w-52 h-10 cursor-pointer">
                         Ver Productos <ArrowRight className="ml-2 h-6 w-6" />
                       </Button>
