@@ -1,16 +1,17 @@
-import { CardFooter } from "@/components/ui/card"
-import { CardTitle } from "@/components/ui/card"
-import { CardContent } from "@/components/ui/card"
-import { CardHeader } from "@/components/ui/card"
-import { Card } from "@/components/ui/card"
-import Link from "next/link"
-import Image from "next/image"
-import { notFound } from "next/navigation"
-import { ArrowLeft, Minus, Plus, ShoppingCart, Heart } from "lucide-react"
+import { CardFooter } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { ArrowLeft, Minus, Plus, ShoppingCart, Heart } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import NavBar from "@/components/shared/NavBar";
 
 // Datos de ejemplo para los productos
 const productos = [
@@ -29,9 +30,16 @@ const productos = [
       "/placeholder.svg?height=600&width=600",
       "/placeholder.svg?height=600&width=600",
     ],
-    ingredientes: "Agua purificada, extractos naturales, azúcar de caña, ácido cítrico, saborizantes naturales.",
-    beneficios: "Refrescante, energizante natural, sin conservantes artificiales.",
-    presentaciones: ["Botella 355ml", "Botella 500ml", "Lata 355ml", "Six-pack"],
+    ingredientes:
+      "Agua purificada, extractos naturales, azúcar de caña, ácido cítrico, saborizantes naturales.",
+    beneficios:
+      "Refrescante, energizante natural, sin conservantes artificiales.",
+    presentaciones: [
+      "Botella 355ml",
+      "Botella 500ml",
+      "Lata 355ml",
+      "Six-pack",
+    ],
   },
   {
     id: "2",
@@ -48,9 +56,15 @@ const productos = [
       "/placeholder.svg?height=600&width=600",
       "/placeholder.svg?height=600&width=600",
     ],
-    ingredientes: "Agua purificada, jugo de limón, jugo de naranja, jugo de toronja, azúcar de caña, ácido cítrico.",
+    ingredientes:
+      "Agua purificada, jugo de limón, jugo de naranja, jugo de toronja, azúcar de caña, ácido cítrico.",
     beneficios: "Rico en vitamina C, antioxidantes naturales, refrescante.",
-    presentaciones: ["Botella 355ml", "Botella 500ml", "Lata 355ml", "Six-pack"],
+    presentaciones: [
+      "Botella 355ml",
+      "Botella 500ml",
+      "Lata 355ml",
+      "Six-pack",
+    ],
   },
   {
     id: "3",
@@ -67,9 +81,15 @@ const productos = [
       "/placeholder.svg?height=600&width=600",
       "/placeholder.svg?height=600&width=600",
     ],
-    ingredientes: "Agua purificada, jugo de piña, puré de mango, jugo de maracuyá, azúcar de caña, ácido cítrico.",
+    ingredientes:
+      "Agua purificada, jugo de piña, puré de mango, jugo de maracuyá, azúcar de caña, ácido cítrico.",
     beneficios: "Fuente de vitaminas, refrescante, energizante natural.",
-    presentaciones: ["Botella 355ml", "Botella 500ml", "Lata 355ml", "Six-pack"],
+    presentaciones: [
+      "Botella 355ml",
+      "Botella 500ml",
+      "Lata 355ml",
+      "Six-pack",
+    ],
   },
   {
     id: "4",
@@ -86,9 +106,15 @@ const productos = [
       "/placeholder.svg?height=600&width=600",
       "/placeholder.svg?height=600&width=600",
     ],
-    ingredientes: "Agua purificada, extractos concentrados, especias seleccionadas, azúcar moreno, ácido cítrico.",
-    beneficios: "Experiencia sensorial completa, energizante natural, sin conservantes artificiales.",
-    presentaciones: ["Botella 355ml", "Botella 500ml", "Edición especial 750ml"],
+    ingredientes:
+      "Agua purificada, extractos concentrados, especias seleccionadas, azúcar moreno, ácido cítrico.",
+    beneficios:
+      "Experiencia sensorial completa, energizante natural, sin conservantes artificiales.",
+    presentaciones: [
+      "Botella 355ml",
+      "Botella 500ml",
+      "Edición especial 750ml",
+    ],
   },
   {
     id: "5",
@@ -105,9 +131,15 @@ const productos = [
       "/placeholder.svg?height=600&width=600",
       "/placeholder.svg?height=600&width=600",
     ],
-    ingredientes: "Agua purificada, extractos naturales, stevia, eritritol, ácido cítrico, saborizantes naturales.",
+    ingredientes:
+      "Agua purificada, extractos naturales, stevia, eritritol, ácido cítrico, saborizantes naturales.",
     beneficios: "Bajo en calorías, sin azúcares añadidos, refrescante.",
-    presentaciones: ["Botella 355ml", "Botella 500ml", "Lata 355ml", "Six-pack"],
+    presentaciones: [
+      "Botella 355ml",
+      "Botella 500ml",
+      "Lata 355ml",
+      "Six-pack",
+    ],
   },
   {
     id: "6",
@@ -124,9 +156,14 @@ const productos = [
       "/placeholder.svg?height=600&width=600",
       "/placeholder.svg?height=600&width=600",
     ],
-    ingredientes: "Agua purificada, puré de fresa, puré de frambuesa, puré de mora, azúcar de caña, ácido cítrico.",
+    ingredientes:
+      "Agua purificada, puré de fresa, puré de frambuesa, puré de mora, azúcar de caña, ácido cítrico.",
     beneficios: "Rico en antioxidantes, vitaminas naturales, refrescante.",
-    presentaciones: ["Botella 355ml", "Botella 500ml", "Edición especial 750ml"],
+    presentaciones: [
+      "Botella 355ml",
+      "Botella 500ml",
+      "Edición especial 750ml",
+    ],
   },
   {
     id: "7",
@@ -145,8 +182,13 @@ const productos = [
     ],
     ingredientes:
       "Agua de manantial, ingredientes de temporada seleccionados, especias exóticas, edulcorantes naturales.",
-    beneficios: "Experiencia sensorial única, ingredientes exclusivos, edición limitada.",
-    presentaciones: ["Botella premium 500ml", "Caja regalo 2 botellas", "Edición coleccionista 750ml"],
+    beneficios:
+      "Experiencia sensorial única, ingredientes exclusivos, edición limitada.",
+    presentaciones: [
+      "Botella premium 500ml",
+      "Caja regalo 2 botellas",
+      "Edición coleccionista 750ml",
+    ],
   },
   {
     id: "8",
@@ -163,51 +205,35 @@ const productos = [
       "/placeholder.svg?height=600&width=600",
       "/placeholder.svg?height=600&width=600",
     ],
-    ingredientes: "Agua purificada, extracto de menta, azúcar de caña, ácido cítrico, saborizantes naturales.",
-    beneficios: "Extremadamente refrescante, digestivo natural, sensación de frescura duradera.",
-    presentaciones: ["Botella 355ml", "Botella 500ml", "Lata 355ml", "Six-pack"],
+    ingredientes:
+      "Agua purificada, extracto de menta, azúcar de caña, ácido cítrico, saborizantes naturales.",
+    beneficios:
+      "Extremadamente refrescante, digestivo natural, sensación de frescura duradera.",
+    presentaciones: [
+      "Botella 355ml",
+      "Botella 500ml",
+      "Lata 355ml",
+      "Six-pack",
+    ],
   },
-]
+];
 
 export default function ProductoPage({ params }: { params: { id: string } }) {
-  const producto = productos.find((p) => p.id === params.id)
+  const producto = productos.find((p) => p.id === params.id);
 
   if (!producto) {
-    notFound()
+    notFound();
   }
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link className="flex items-center justify-center" href="/">
-          <Image
-            src="/placeholder.svg?height=40&width=40"
-            alt="La Breve Logo"
-            width={40}
-            height={40}
-            className="h-6 w-6"
-          />
-          <span className="ml-2 text-xl font-bold">La Breve</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/">
-            Inicio
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/productos">
-            Productos
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/#about">
-            Nosotros
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/#contact">
-            Contacto
-          </Link>
-        </nav>
-      </header>
+      <NavBar />
       <main className="flex-1">
         <div className="container px-4 py-6 md:py-12">
           <div className="flex items-center mb-6">
-            <Link href="/productos" className="flex items-center text-sm text-muted-foreground hover:text-foreground">
+            <Link
+              href="/products"
+              className="flex items-center text-sm text-muted-foreground hover:text-foreground">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Volver a productos
             </Link>
@@ -225,7 +251,9 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
               </div>
               <div className="grid grid-cols-4 gap-2">
                 {producto.imagenes.map((img, i) => (
-                  <div key={i} className="overflow-hidden rounded-lg border cursor-pointer">
+                  <div
+                    key={i}
+                    className="overflow-hidden rounded-lg border cursor-pointer">
                     <Image
                       src={img || "/placeholder.svg"}
                       alt={`${producto.nombre} - Vista ${i + 1}`}
@@ -240,7 +268,9 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
             <div className="space-y-6">
               <div>
                 <h1 className="text-3xl font-bold">{producto.nombre}</h1>
-                <p className="text-2xl font-bold text-amber-600 mt-2">{producto.precio}</p>
+                <p className="text-2xl font-bold text-amber-600 mt-2">
+                  {producto.precio}
+                </p>
               </div>
               <p className="text-muted-foreground">{producto.descripcion}</p>
               <Separator />
@@ -248,12 +278,18 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
                 <div className="flex items-center">
                   <span className="font-medium mr-2">Cantidad:</span>
                   <div className="flex items-center border rounded-md">
-                    <Button variant="ghost" size="icon" className="h-8 w-8 rounded-none">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8 rounded-none">
                       <Minus className="h-4 w-4" />
                       <span className="sr-only">Reducir cantidad</span>
                     </Button>
                     <span className="w-8 text-center">1</span>
-                    <Button variant="ghost" size="icon" className="h-8 w-8 rounded-none">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8 rounded-none">
                       <Plus className="h-4 w-4" />
                       <span className="sr-only">Aumentar cantidad</span>
                     </Button>
@@ -288,10 +324,14 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
                   <TabsTrigger value="beneficios">Beneficios</TabsTrigger>
                 </TabsList>
                 <TabsContent value="descripcion" className="pt-4">
-                  <p className="text-muted-foreground">{producto.descripcionLarga}</p>
+                  <p className="text-muted-foreground">
+                    {producto.descripcionLarga}
+                  </p>
                 </TabsContent>
                 <TabsContent value="ingredientes" className="pt-4">
-                  <p className="text-muted-foreground">{producto.ingredientes}</p>
+                  <p className="text-muted-foreground">
+                    {producto.ingredientes}
+                  </p>
                 </TabsContent>
                 <TabsContent value="beneficios" className="pt-4">
                   <p className="text-muted-foreground">{producto.beneficios}</p>
@@ -303,7 +343,10 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
             <h2 className="text-2xl font-bold mb-6">Productos relacionados</h2>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {productos
-                .filter((p) => p.id !== producto.id && p.categoria === producto.categoria)
+                .filter(
+                  (p) =>
+                    p.id !== producto.id && p.categoria === producto.categoria
+                )
                 .slice(0, 4)
                 .map((prod) => (
                   <Card key={prod.id} className="overflow-hidden">
@@ -317,15 +360,23 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
                       />
                     </CardHeader>
                     <CardContent className="p-4">
-                      <CardTitle className="text-xl mb-2">{prod.nombre}</CardTitle>
-                      <p className="text-sm text-muted-foreground">{prod.descripcion}</p>
-                      <p className="text-lg font-bold mt-2 text-amber-600">{prod.precio}</p>
+                      <CardTitle className="text-xl mb-2">
+                        {prod.nombre}
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground">
+                        {prod.descripcion}
+                      </p>
+                      <p className="text-lg font-bold mt-2 text-amber-600">
+                        {prod.precio}
+                      </p>
                     </CardContent>
                     <CardFooter className="p-4 pt-0 flex justify-between">
                       <Link href={`/productos/${prod.id}`}>
                         <Button variant="outline">Ver detalles</Button>
                       </Link>
-                      <Button className="bg-amber-600 hover:bg-amber-700">Comprar</Button>
+                      <Button className="bg-amber-600 hover:bg-amber-700">
+                        Comprar
+                      </Button>
                     </CardFooter>
                   </Card>
                 ))}
@@ -334,7 +385,9 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
         </div>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">© 2023 La Breve. Todos los derechos reservados.</p>
+        <p className="text-xs text-muted-foreground">
+          © 2023 La Breve. Todos los derechos reservados.
+        </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link className="text-xs hover:underline underline-offset-4" href="#">
             Términos de servicio
@@ -345,5 +398,5 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
         </nav>
       </footer>
     </div>
-  )
+  );
 }

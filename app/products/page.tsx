@@ -1,10 +1,17 @@
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import NavBar from "@/components/shared/NavBar";
 
 // Datos de ejemplo para los productos
 const productos = [
@@ -72,43 +79,20 @@ const productos = [
     categoria: "clasicos",
     imagen: "/placeholder.svg?height=300&width=300",
   },
-]
+];
 
 export default function ProductosPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link className="flex items-center justify-center" href="/">
-          <Image
-            src="/placeholder.svg?height=40&width=40"
-            alt="La Breve Logo"
-            width={40}
-            height={40}
-            className="h-6 w-6"
-          />
-          <span className="ml-2 text-xl font-bold">La Breve</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/">
-            Inicio
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/productos">
-            Productos
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/#about">
-            Nosotros
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/#contact">
-            Contacto
-          </Link>
-        </nav>
-      </header>
+      <NavBar />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 bg-amber-50">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">Nuestros Productos</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Nuestros Productos
+                </h1>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl">
                   Descubre nuestra variedad de bebidas listas para tomar
                 </p>
@@ -120,7 +104,11 @@ export default function ProductosPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <div className="flex items-center gap-2">
-                <Input className="w-full md:w-[300px]" placeholder="Buscar productos..." type="search" />
+                <Input
+                  className="w-full md:w-[300px]"
+                  placeholder="Buscar productos..."
+                  type="search"
+                />
               </div>
               <Tabs defaultValue="todos" className="w-full md:w-auto">
                 <TabsList>
@@ -144,15 +132,23 @@ export default function ProductosPage() {
                     />
                   </CardHeader>
                   <CardContent className="p-4">
-                    <CardTitle className="text-xl mb-2">{producto.nombre}</CardTitle>
-                    <p className="text-sm text-muted-foreground">{producto.descripcion}</p>
-                    <p className="text-lg font-bold mt-2 text-amber-600">{producto.precio}</p>
+                    <CardTitle className="text-xl mb-2">
+                      {producto.nombre}
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground">
+                      {producto.descripcion}
+                    </p>
+                    <p className="text-lg font-bold mt-2 text-amber-600">
+                      {producto.precio}
+                    </p>
                   </CardContent>
                   <CardFooter className="p-4 pt-0 flex justify-between">
-                    <Link href={`/productos/${producto.id}`}>
+                    <Link href={`/products/${producto.id}`}>
                       <Button variant="outline">Ver detalles</Button>
                     </Link>
-                    <Button className="bg-amber-600 hover:bg-amber-700">Comprar</Button>
+                    <Button className="bg-amber-600 hover:bg-amber-700">
+                      Comprar
+                    </Button>
                   </CardFooter>
                 </Card>
               ))}
@@ -161,7 +157,9 @@ export default function ProductosPage() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">© 2023 La Breve. Todos los derechos reservados.</p>
+        <p className="text-xs text-muted-foreground">
+          © 2023 La Breve. Todos los derechos reservados.
+        </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link className="text-xs hover:underline underline-offset-4" href="#">
             Términos de servicio
@@ -172,5 +170,5 @@ export default function ProductosPage() {
         </nav>
       </footer>
     </div>
-  )
+  );
 }
