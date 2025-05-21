@@ -1,3 +1,5 @@
+"use client";
+
 import { CardFooter } from "@/components/ui/card";
 import { CardTitle } from "@/components/ui/card";
 import { CardContent } from "@/components/ui/card";
@@ -14,10 +16,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import NavBar from "@/components/shared/NavBar";
 import Footer from "@/components/shared/Footer";
 import { productos } from "@/lib/data";
+import { useState } from "react";
 
 export default function ProductoPage({ params }: { params: { id: string } }) {
   const producto = productos.find((p) => p.id === params.id);
-
+  const [count, setCount] = useState(1);
   if (!producto) {
     notFound();
   }
@@ -30,7 +33,7 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
           <div className="flex items-center mb-6">
             <Link
               href="/products"
-              className="flex items-center text-sm text-muted-foreground hover:text-foreground">
+              className="flex items-center text-sm text-la-breve-navy hover:text-foreground">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Volver a productos
             </Link>
@@ -65,11 +68,11 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
             <div className="space-y-6">
               <div>
                 <h1 className="text-3xl font-bold">{producto.nombre}</h1>
-                <p className="text-2xl font-bold text-amber-600 mt-2">
+                <p className="text-2xl font-bold text-la-breve-orange mt-2">
                   {producto.precio}
                 </p>
               </div>
-              <p className="text-muted-foreground">{producto.descripcion}</p>
+              <p className="text-la-breve-navy">{producto.descripcion}</p>
               <Separator />
               <div className="space-y-4">
                 <div className="flex items-center">
@@ -78,15 +81,17 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="h-8 w-8 rounded-none">
+                      className="h-8 w-8 rounded-none"
+                      onClick={() => setCount((prev) => Math.max(prev - 1, 1))}>
                       <Minus className="h-4 w-4" />
                       <span className="sr-only">Reducir cantidad</span>
                     </Button>
-                    <span className="w-8 text-center">1</span>
+                    <span className="w-8 text-center">{count}</span>
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="h-8 w-8 rounded-none">
+                      className="h-8 w-8 rounded-none"
+                      onClick={() => setCount((prev) => prev + 1)}>
                       <Plus className="h-4 w-4" />
                       <span className="sr-only">Aumentar cantidad</span>
                     </Button>
@@ -94,7 +99,7 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
                 </div>
                 <div className="flex items-center">
                   <span className="font-medium mr-2">Presentación:</span>
-                  <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 max-w-[200px]">
+                  <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-la-breve-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 max-w-[200px]">
                     {producto.presentaciones.map((presentacion, i) => (
                       <option key={i} value={presentacion}>
                         {presentacion}
@@ -104,11 +109,13 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
                 </div>
               </div>
               <div className="flex flex-col gap-2 sm:flex-row">
-                <Button className="bg-amber-600 hover:bg-amber-700 flex-1">
+                <Button className="bg-la-breve-orange hover:bg-amber-700 flex-1 disabled cursor-not-allowed">
                   <ShoppingCart className="mr-2 h-4 w-4" />
                   Añadir al carrito
                 </Button>
-                <Button variant="outline" className="flex-1">
+                <Button
+                  variant="outline"
+                  className="flex-1 disabled cursor-not-allowed">
                   <Heart className="mr-2 h-4 w-4" />
                   Añadir a favoritos
                 </Button>
@@ -121,17 +128,15 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
                   <TabsTrigger value="beneficios">Beneficios</TabsTrigger>
                 </TabsList>
                 <TabsContent value="descripcion" className="pt-4">
-                  <p className="text-muted-foreground">
+                  <p className="text-la-breve-navy">
                     {producto.descripcionLarga}
                   </p>
                 </TabsContent>
                 <TabsContent value="ingredientes" className="pt-4">
-                  <p className="text-muted-foreground">
-                    {producto.ingredientes}
-                  </p>
+                  <p className="text-la-breve-navy">{producto.ingredientes}</p>
                 </TabsContent>
                 <TabsContent value="beneficios" className="pt-4">
-                  <p className="text-muted-foreground">{producto.beneficios}</p>
+                  <p className="text-la-breve-navy">{producto.beneficios}</p>
                 </TabsContent>
               </Tabs>
             </div>
@@ -160,18 +165,18 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
                       <CardTitle className="text-xl mb-2">
                         {prod.nombre}
                       </CardTitle>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-la-breve-navy">
                         {prod.descripcion}
                       </p>
-                      <p className="text-lg font-bold mt-2 text-amber-600">
+                      <p className="text-lg font-bold mt-2 text-la-breve-orange">
                         {prod.precio}
                       </p>
                     </CardContent>
                     <CardFooter className="p-4 pt-0 flex justify-between">
-                      <Link href={`/productos/${prod.id}`}>
+                      <Link href={`/products/${prod.id}`}>
                         <Button variant="outline">Ver detalles</Button>
                       </Link>
-                      <Button className="bg-amber-600 hover:bg-amber-700">
+                      <Button className="bg-la-breve-orange hover:bg-amber-700 disabled cursor-not-allowed">
                         Comprar
                       </Button>
                     </CardFooter>

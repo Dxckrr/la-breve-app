@@ -6,7 +6,7 @@ export default function NavBar() {
     <header className="fixed top-0 left-0 w-full z-10 bg-white px-4 lg:px-12 h-14 flex items-center shadow-md">
       <Link className="flex items-center justify-center" href="/">
         <Image
-          src="/img_test.jpg"
+          src="/la-breve.png"
           alt="La Breve Logo"
           width={40}
           height={40}

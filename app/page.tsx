@@ -39,11 +39,11 @@ export default function Home() {
               </div>
               <div className="flex items-center justify-center">
                 <Image
-                  src="/img_test.jpg"
+                  src="/la-breve.png"
                   alt="La Breve Producto"
                   width={550}
                   height={450}
-                  className="rounded-xl object-cover"
+                  className="rounded-xl object-cover h-auto"
                 />
               </div>
             </div>
