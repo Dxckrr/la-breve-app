@@ -4,12 +4,13 @@ import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import NavBar from "@/components/shared/NavBar";
+import Footer from "@/components/shared/Footer";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />
-      <main className="flex-1">
+      <main className="flex-1 pt-10">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-r from-la-breve-peach via-la-breve-blush to-la-breve-coral">
           <div className="container px-4 md:px-6 mx-auto">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
@@ -416,25 +417,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-la-breve-navy">
-          © 2025 La Breve. Todos los derechos reservados.
-        </p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <span className="text-xs underline-offset-4">
-            Términos de servicio
-          </span>
-          <span className="text-xs underline-offset-4">
-            Política de privacidad
-          </span>
-          <Link
-            className="text-xs hover:underline underline-offset-4"
-            target="_blank"
-            href="https://www.upb.edu.co/es/home">
-            Universidad Pontificia Bolivariana Seccional Bucaramanga
-          </Link>
-        </nav>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import NavBar from "@/components/shared/NavBar";
+import Footer from "@/components/shared/Footer";
 
 // Datos de ejemplo para los productos
 const productos = [
@@ -228,7 +229,7 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />
-      <main className="flex-1">
+      <main className="flex-1 pt-10">
         <div className="container px-4 py-6 md:py-12">
           <div className="flex items-center mb-6">
             <Link
@@ -384,19 +385,7 @@ export default function ProductoPage({ params }: { params: { id: string } }) {
           </section>
         </div>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">
-          © 2023 La Breve. Todos los derechos reservados.
-        </p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Términos de servicio
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Política de privacidad
-          </Link>
-        </nav>
-      </footer>
+      <Footer />
     </div>
   );
 }
