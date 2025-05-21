@@ -16,10 +16,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import NavBar from "@/components/shared/NavBar";
 import Footer from "@/components/shared/Footer";
 import { productos } from "@/lib/data";
-import { useState } from "react";
+import { use, useState } from "react";
 
-export default function ProductoPage({ params }: { params: { id: string } }) {
-  const producto = productos.find((p) => p.id === params.id);
+export default function ProductoPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
+  const producto = productos.find((p) => p.id === id);
   const [count, setCount] = useState(1);
   if (!producto) {
     notFound();

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -11,9 +11,14 @@ import Footer from "@/components/shared/Footer";
 import IntroFade from "@/components/ui/IntroFade";
 
 export default function Home() {
-  const [showContent, setShowContent] = useState(
-    localStorage.getItem("contentShown") === "true"
-  );
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("contentShown");
+    if (stored === "true") {
+      setShowContent(true);
+    }
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
